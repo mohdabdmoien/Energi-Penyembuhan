@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Energi Kasih Penyembuh</title>
+<style>
+html, body {
+margin: 0;
+padding: 0;
+background: linear-gradient(to bottom, #fff5f5, #ffe0e0);
+font-family: 'Segoe UI', sans-serif;
+height: 100%;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}
+
+h1 {
+font-size: 6vw;
+color: #cc0055;
+margin: 5vh 0 2vh;
+text-align: center;
+padding: 0 5vw;
+}
+
+#wave {
+width: 40vw;
+height: 40vw;
+border-radius: 50%;
+background: radial-gradient(circle, #ffccdd 20%, #cc0055 70%, transparent 100%);
+animation: pulse 2s infinite;
+display: none;
+margin: 4vh auto;
+}
+
+@keyframes pulse {
+0% { transform: scale(1); opacity: 0.8; }
+50% { transform: scale(1.2); opacity: 1; }
+100% { transform: scale(1); opacity: 0.8; }
+}
+
+#niat {
+font-size: 4vw;
+padding: 3vw;
+width: 80vw;
+margin: 2vh 0;
+border-radius: 10px;
+border: 1px solid #ccc;
+}
+
+button {
+padding: 3vw 6vw;
+font-size: 4.5vw;
+background-color: #cc0055;
+color: white;
+border: none;
+border-radius: 30px;
+cursor: pointer;
+margin-top: 2vh;
+}
+
+#affirmation {
+font-size: 4vw;
+color: #880044;
+display: none;
+padding: 4vw;
+text-align: center;
+}
+
+@media (min-width: 768px) {
+h1 { font-size: 2em; }
+button, #niat, #affirmation { font-size: 1.1em; }
+#wave { width: 200px; height: 200px; }
+}
+</style>
+</head>
+<body>
+<h1>Aktifkan Frekuensi Kasih Penyembuh</h1>
+
+<input id="niat" placeholder="Masukkan niat penyembuhan di sini..." />
+
+<div id="wave"></div>
+
+<button onclick="startEnergy()">Mula Pancarkan Kasih</button>
+
+<div id="affirmation">
+🌸 Energi kasih telah dipancarkan.<br>
+Segala kesakitan, ketidakseimbangan, dan luka… sedang dipeluk dan dinyahkan.<br><br>
+<strong>"Aku adalah gelombang kasih. Aku menyembuh dan dipulihkan."</strong>
+</div>
+
+<audio id="healingAudio" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+
+<script>
+function startEnergy() {
+// Tunjuk gelombang & affirmasi
+document.getElementById("wave").style.display = "block";
+document.getElementById("affirmation").style.display = "block";
+
+// Main audio healing
+const audio = document.getElementById("healingAudio");
+audio.loop = true;
+audio.volume = 0.5;
+audio.play();
+
+// Getaran telefon
+if ("vibrate" in navigator) {
+navigator.vibrate([200, 100, 200, 100, 300]); // corak getaran simbolik
+}
+
+// Ambil niat & paparkan
+const niat = document.getElementById("niat").value;
+if (niat.trim() !== "") {
+document.getElementById("affirmation").innerHTML += "<br><br><em>Niat dihantar:</em> " + niat;
+}
+}
+</script>
+</body>
+</html>
